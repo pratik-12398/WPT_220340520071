@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q1</title>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+    $(() =>{
+        $('#bookid')
+        let input={bookid:$('#bookid').val()};
+        let parametertothefunction={
+
+            data:input,
+            type:"get",
+            datatype:"json",
+            url:"http://localhost:8081/getdetails",
+            success:(data)=>{
+                if(data.status===true){
+                    $("#msg").text("book id is found");
+                    $("#bookname").val(data.book.bookname);
+                    $("#price").val(data.book.price);
+                }
+                else{
+                    $("#msg").text("book id is not found");
+                }
+            }
+         
+        
+
+ };
+ $.ajax(parametertothefunction);
+});
+$(bookid).click(()=>{
+    let input ={bookid:$("#bookid").val(),bookname:$("#bookname").val(),price}
+    let parametertothefunction={
+        data:input,
+        type:"get",
+        datatype:"json",
+        url:"http://localhost:8081/getdetails",
+    }
+}
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
